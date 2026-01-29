@@ -17,10 +17,10 @@ export const NAV_IDS = {
 
 // Alerting page paths
 export const ALERTING_PATHS = {
-  NOTIFICATIONS: '/alerting/notifications',
-  TEMPLATES: '/alerting/notifications/templates',
-  TIME_INTERVALS: '/alerting/routes/mute-timing',
-  ROUTES: '/alerting/routes',
+  NOTIFICATIONS: '/alerting/notifications' as const,
+  TEMPLATES: '/alerting/notifications/templates' as const,
+  TIME_INTERVALS: '/alerting/routes/mute-timing' as const,
+  ROUTES: '/alerting/routes' as const,
 };
 
 export const createListFilterLink = (values: Array<[string, string]>, options?: { skipSubPath?: boolean }) => {
@@ -119,14 +119,18 @@ export const notificationPolicies = {
  * Returns the parent URL for template pages based on navigation version.
  * For V2 navigation, templates have their own tab. For legacy, they're accessed via Contact Points with a tab parameter.
  */
-export function getTemplateParentUrl(useV2Nav: boolean): string {
-  return useV2Nav ? ALERTING_PATHS.TEMPLATES : createRelativeUrl(ALERTING_PATHS.NOTIFICATIONS, { tab: 'templates' });
+export function getTemplateParentUrl(useV2Nav: boolean | undefined): string {
+  return useV2Nav
+    ? ALERTING_PATHS.TEMPLATES
+    : createRelativeUrl(ALERTING_PATHS.NOTIFICATIONS, { tab: 'templates' });
 }
 
 /**
  * Returns the parent URL for time interval pages based on navigation version.
  * For V2 navigation, time intervals have their own tab. For legacy, they're accessed via Notification Policies with a tab parameter.
  */
-export function getTimeIntervalParentUrl(useV2Nav: boolean): string {
-  return useV2Nav ? ALERTING_PATHS.TIME_INTERVALS : createRelativeUrl(ALERTING_PATHS.ROUTES, { tab: 'time_intervals' });
+export function getTimeIntervalParentUrl(useV2Nav: boolean | undefined): string {
+  return useV2Nav
+    ? ALERTING_PATHS.TIME_INTERVALS
+    : createRelativeUrl(ALERTING_PATHS.ROUTES, { tab: 'time_intervals' });
 }
