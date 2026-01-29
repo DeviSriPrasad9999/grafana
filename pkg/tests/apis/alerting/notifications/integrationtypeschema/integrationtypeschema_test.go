@@ -82,6 +82,6 @@ func TestIntegrationTypeSchema(t *testing.T) {
 		var exp v0alpha1.IntegrationTypeSchemaList
 		require.NoError(t, json.Unmarshal(expRaw, &exp))
 
-		require.Equal(t, len(exp.Items), len(listRes.Items))
+		require.Equal(t, exp.Items, listRes.Items)
 	})
 }

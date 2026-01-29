@@ -1,13 +1,13 @@
 {
-  "kind": "ReceiverTypeSchemaList",
+  "kind": "IntegrationTypeSchemaList",
   "apiVersion": "notifications.alerting.grafana.app/v0alpha1",
   "metadata": {},
   "items": [
     {
       "metadata": {
         "name": "LINE",
-        "namespace": "org--1",
-        "uid": "wQ44uzZJVvN1FgQ8JrRW0efhdMZHak9nAEgXLCtWZMkX"
+        "namespace": "default",
+        "uid": "QcE8uwU3Sn0hiUamhzJY3MvZCGUzguCgChjsvCBDKygX"
       },
       "spec": {
         "type": "LINE",
@@ -78,8 +78,8 @@
     {
       "metadata": {
         "name": "dingding",
-        "namespace": "org--1",
-        "uid": "VYDuJJur9DAZy5IhFyY8jZ2pmXnXqMXLLhvy8JzIuAUX"
+        "namespace": "default",
+        "uid": "l0GHmYx63wxaWJDMWKV5Xg78tcLw9XFRREoPipz6oBAX"
       },
       "spec": {
         "type": "dingding",
@@ -177,8 +177,8 @@
     {
       "metadata": {
         "name": "discord",
-        "namespace": "org--1",
-        "uid": "0ZeWY8EGYp0EPCYSrWPPZAEZcCmohc9QdOSLktSFvQsX"
+        "namespace": "default",
+        "uid": "X2eWeYzvu7SBNuQiyy0P1kp0Is8X8FTaEZ5QWzOaPb8X"
       },
       "spec": {
         "type": "discord",
@@ -826,8 +826,8 @@
     {
       "metadata": {
         "name": "email",
-        "namespace": "org--1",
-        "uid": "pyqiaRX5CiltEcq3n1lAnbm2XFqPMiIOfqzsmghb22IX"
+        "namespace": "default",
+        "uid": "5I0g3u25GSVTTrCG1iYn0yHpZeYF7RS0YXcvna8ZJ7gX"
       },
       "spec": {
         "type": "email",
@@ -1192,8 +1192,8 @@
     {
       "metadata": {
         "name": "googlechat",
-        "namespace": "org--1",
-        "uid": "N4m9cJPIIW43XRvzGiXJdg4sZa8c7gPOfV6Mp153pukX"
+        "namespace": "default",
+        "uid": "y47dFyAXpJpPqIqkX8YLhKk23ZDXZwKpqVZbyduOoA0X"
       },
       "spec": {
         "type": "googlechat",
@@ -1295,8 +1295,8 @@
     {
       "metadata": {
         "name": "jira",
-        "namespace": "org--1",
-        "uid": "dTXQWOcQvBp1qX2UYjXWX211wvy8DbzdfdXr2ulfMLgX"
+        "namespace": "default",
+        "uid": "ijlfF6qEM63XukVSMUvC3YqNEd82t6s5geJPDrW7P6cX"
       },
       "spec": {
         "type": "jira",
@@ -2264,8 +2264,8 @@
     {
       "metadata": {
         "name": "kafka",
-        "namespace": "org--1",
-        "uid": "DnGsiBCuGQeLXOYtFKjSBR6ToGp32QXoXSQk0UM2fFoX"
+        "namespace": "default",
+        "uid": "bIWlSkrCQphNF5MNJ8RweweY2h2Y5mke5XeeEYHizOYX"
       },
       "spec": {
         "type": "kafka",
@@ -2427,8 +2427,8 @@
     {
       "metadata": {
         "name": "mqtt",
-        "namespace": "org--1",
-        "uid": "TffgqMqzA45GdQXaGel5XZqn4a1wbQ2KpwtGF4yJPoUX"
+        "namespace": "default",
+        "uid": "2iVUX2N0raXY1GUkDzqDxCODiKYqT8ZexEoviAlNPcwX"
       },
       "spec": {
         "type": "mqtt",
@@ -2706,8 +2706,8 @@
     {
       "metadata": {
         "name": "oncall",
-        "namespace": "org--1",
-        "uid": "QCH3W51lXa3KaysLS3v7X8sn0Hmzaez1h0w2HlBSiFQX"
+        "namespace": "default",
+        "uid": "NES2EevTejOlYRyLTArx8ujnXCsE5rG0H4JQ2xOXp98X"
       },
       "spec": {
         "type": "oncall",
@@ -2885,8 +2885,8 @@
     {
       "metadata": {
         "name": "opsgenie",
-        "namespace": "org--1",
-        "uid": "jUklBTr8dVTbJHymOokfhK2e4cSvr5RZDxoMJZBnJG4X"
+        "namespace": "default",
+        "uid": "zYJJUTyJplz6cMWeCljEto1N8fXGKtuxhO7KmQEvEUIX"
       },
       "spec": {
         "type": "opsgenie",
@@ -3891,8 +3891,8 @@
     {
       "metadata": {
         "name": "pagerduty",
-        "namespace": "org--1",
-        "uid": "V5Q6qNLZX9PVzh99Tbp8bImHajO1BaXUf8u8Vvj8Ui0X"
+        "namespace": "default",
+        "uid": "6SVwIRspr366nGshIF55HY7KsUtjwGPl7wsFiwlVLV0X"
       },
       "spec": {
         "type": "pagerduty",
@@ -4896,8 +4896,8 @@
     {
       "metadata": {
         "name": "prometheus-alertmanager",
-        "namespace": "org--1",
-        "uid": "djXS9Tt5iVoLxPLZHKwz329F1qqEeF2IGfXHE9PBwzYX"
+        "namespace": "default",
+        "uid": "c1f9XduRFfd8UIh5ofMlCgmuIigZXOkiEHV6jx2XwSIX"
       },
       "spec": {
         "type": "prometheus-alertmanager",
@@ -4967,8 +4967,8 @@
     {
       "metadata": {
         "name": "pushover",
-        "namespace": "org--1",
-        "uid": "5gEz1O8e9TJrpdTBY4Hdb4ufulXf0Y5gmgloNgsPyE8X"
+        "namespace": "default",
+        "uid": "6Uf8eHOtHsQvSHJ6uK0XxngDHVb7tXQIfPhQvtSFFl8X"
       },
       "spec": {
         "type": "pushover",
@@ -6159,8 +6159,8 @@
     {
       "metadata": {
         "name": "sensugo",
-        "namespace": "org--1",
-        "uid": "UKtGMPdLR4ENaOT3gmCjog6oLw2xHcWvb2Hlf3muCtIX"
+        "namespace": "default",
+        "uid": "EYr4lvDJBj4ygniRX5k9CoaeDwLMaYQSdBHgP5h83k8X"
       },
       "spec": {
         "type": "sensugo",
@@ -6294,8 +6294,8 @@
     {
       "metadata": {
         "name": "slack",
-        "namespace": "org--1",
-        "uid": "lZSoXMFNPmHCQa2XYGFbFIlmgKfaagck9vX74nLEZxUX"
+        "namespace": "default",
+        "uid": "A80gX88X0UibMJbmTNGnETFk5XgPUvc0LV2Y0t8GXzoX"
       },
       "spec": {
         "type": "slack",
@@ -7607,8 +7607,8 @@
     {
       "metadata": {
         "name": "sns",
-        "namespace": "org--1",
-        "uid": "Lpj8PlZmEoW8wJXzpx1U8SBpZuz45beCEEgaXmoRvHwX"
+        "namespace": "default",
+        "uid": "aX5pLIEBJpQqhdUAPUBbaGZ8wlrQDT2m0tRpaKtCF7UX"
       },
       "spec": {
         "type": "sns",
@@ -8547,8 +8547,8 @@
     {
       "metadata": {
         "name": "teams",
-        "namespace": "org--1",
-        "uid": "qZ0OHxuQOfHZmycvlpkBXqhMY7WPtXRwpnIp1jnCnx8X"
+        "namespace": "default",
+        "uid": "CFvY2c5cGZ3mrPOxEq6yxsgMHoJAj6L7WN0RXxcgtRgX"
       },
       "spec": {
         "type": "teams",
@@ -9744,8 +9744,8 @@
     {
       "metadata": {
         "name": "telegram",
-        "namespace": "org--1",
-        "uid": "agN4OD8y0xpusrA5D9pEtNTY36ox5XrlC7tb60URemwX"
+        "namespace": "default",
+        "uid": "XgHUJETYhHcSXnTXkgtX8HmQP0GnTnjRAjdeRSD1oXcX"
       },
       "spec": {
         "type": "telegram",
@@ -10532,8 +10532,8 @@
     {
       "metadata": {
         "name": "threema",
-        "namespace": "org--1",
-        "uid": "feXXvSvzx33HsDqO2jtw8XLuHXz6rDLzgRBcmEfJJygX"
+        "namespace": "default",
+        "uid": "gO3i7OyHXznUGfLw0tgkHtMIKF7h09N44cqabkXVf80X"
       },
       "spec": {
         "type": "threema",
@@ -10635,8 +10635,8 @@
     {
       "metadata": {
         "name": "victorops",
-        "namespace": "org--1",
-        "uid": "iveckiIjYPH5LEdXWYIp9yN7CT6GX0XTxUF22XBU0wwX"
+        "namespace": "default",
+        "uid": "LjrbVK6v3YMQQAHBs93ImzeqAFCsYpIM4qjXeXQebJAX"
       },
       "spec": {
         "type": "victorops",
@@ -11360,8 +11360,8 @@
     {
       "metadata": {
         "name": "webex",
-        "namespace": "org--1",
-        "uid": "nyOX0tEqXQ16MjMdXpHYXhYam9KdsapI1tKv0yoJF70X"
+        "namespace": "default",
+        "uid": "suSy5Xyt5w6sNrjVZeaXdZ5C9PVMVJaEWwDsYA0j29EX"
       },
       "spec": {
         "type": "webex",
@@ -11994,8 +11994,8 @@
     {
       "metadata": {
         "name": "webhook",
-        "namespace": "org--1",
-        "uid": "SYgXeiR3K9DG5X0TT2C8oc85uXcOCAmp7Tw1DZ79JhMX"
+        "namespace": "default",
+        "uid": "CVClYNvV5lGDcpvd7fTKVIhhzI9XT84QA1AEhvN8FKIX"
       },
       "spec": {
         "type": "webhook",
@@ -13215,8 +13215,8 @@
     {
       "metadata": {
         "name": "wechat",
-        "namespace": "org--1",
-        "uid": "WA6GWspUy4sdrGVYiEcaL6ay4wo8VYfLfnURBJQh3YoX"
+        "namespace": "default",
+        "uid": "mGakEeesUJMX2gGcEFhHaSSbx2lNvZxouL2qRf89WX4X"
       },
       "spec": {
         "type": "wechat",
@@ -13885,8 +13885,8 @@
     {
       "metadata": {
         "name": "wecom",
-        "namespace": "org--1",
-        "uid": "LRVZXavbpx3MIM1XX1O2PeoDl6JeYbMBGE1P6betXiwX"
+        "namespace": "default",
+        "uid": "BAG96EzKAAXvqxwvny0SOoEEbiMP1p2pQdN6U2iY198X"
       },
       "spec": {
         "type": "wecom",
