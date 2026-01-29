@@ -120,9 +120,7 @@ export const notificationPolicies = {
  * For V2 navigation, templates have their own tab. For legacy, they're accessed via Contact Points with a tab parameter.
  */
 export function getTemplateParentUrl(useV2Nav: boolean): string {
-  return useV2Nav
-    ? ALERTING_PATHS.TEMPLATES
-    : createRelativeUrl(ALERTING_PATHS.NOTIFICATIONS, { tab: 'templates' });
+  return useV2Nav ? ALERTING_PATHS.TEMPLATES : createRelativeUrl(ALERTING_PATHS.NOTIFICATIONS, { tab: 'templates' });
 }
 
 /**
@@ -130,7 +128,5 @@ export function getTemplateParentUrl(useV2Nav: boolean): string {
  * For V2 navigation, time intervals have their own tab. For legacy, they're accessed via Notification Policies with a tab parameter.
  */
 export function getTimeIntervalParentUrl(useV2Nav: boolean): string {
-  return useV2Nav
-    ? ALERTING_PATHS.TIME_INTERVALS
-    : createRelativeUrl(ALERTING_PATHS.ROUTES, { tab: 'time_intervals' });
+  return useV2Nav ? ALERTING_PATHS.TIME_INTERVALS : createRelativeUrl(ALERTING_PATHS.ROUTES, { tab: 'time_intervals' });
 }
