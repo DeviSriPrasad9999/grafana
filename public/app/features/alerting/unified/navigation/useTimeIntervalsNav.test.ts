@@ -1,11 +1,11 @@
 import { config } from '@grafana/runtime';
 
-import { useNotificationConfigNav } from './useNotificationConfigNav';
-import { useTimeIntervalsNav } from './useTimeIntervalsNav';
+import { useNotificationConfigNav, useTimeIntervalsNav } from './useNotificationConfigNav';
 
 // Mock useNotificationConfigNav
 jest.mock('./useNotificationConfigNav', () => ({
   useNotificationConfigNav: jest.fn(),
+  useTimeIntervalsNav: jest.requireActual('./useNotificationConfigNav').useTimeIntervalsNav,
 }));
 
 const mockUseNotificationConfigNav = useNotificationConfigNav as jest.Mock;

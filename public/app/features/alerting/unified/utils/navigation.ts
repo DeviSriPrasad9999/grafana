@@ -8,6 +8,21 @@ import { createRelativeUrl } from './url';
 
 type QueryParams = ConstructorParameters<typeof URLSearchParams>[0];
 
+// Navigation IDs for alerting pages
+export const NAV_IDS = {
+  NOTIFICATION_CONFIG: 'notification-config',
+  RECEIVERS: 'receivers',
+  ROUTES: 'am-routes',
+};
+
+// Alerting page paths
+export const ALERTING_PATHS = {
+  NOTIFICATIONS: '/alerting/notifications',
+  TEMPLATES: '/alerting/notifications/templates',
+  TIME_INTERVALS: '/alerting/routes/mute-timing',
+  ROUTES: '/alerting/routes',
+};
+
 export const createListFilterLink = (values: Array<[string, string]>, options?: { skipSubPath?: boolean }) => {
   const params = new URLSearchParams([['search', values.map(([key, value]) => `${key}:"${value}"`).join(' ')]]);
   return createRelativeUrl(`/alerting/list`, params, { skipSubPath: options?.skipSubPath });
@@ -99,3 +114,23 @@ export const notificationPolicies = {
     });
   },
 };
+
+/**
+ * Returns the parent URL for template pages based on navigation version.
+ * For V2 navigation, templates have their own tab. For legacy, they're accessed via Contact Points with a tab parameter.
+ */
+export function getTemplateParentUrl(useV2Nav: boolean): string {
+  return useV2Nav
+    ? ALERTING_PATHS.TEMPLATES
+    : createRelativeUrl(ALERTING_PATHS.NOTIFICATIONS, { tab: 'templates' });
+}
+
+/**
+ * Returns the parent URL for time interval pages based on navigation version.
+ * For V2 navigation, time intervals have their own tab. For legacy, they're accessed via Notification Policies with a tab parameter.
+ */
+export function getTimeIntervalParentUrl(useV2Nav: boolean): string {
+  return useV2Nav
+    ? ALERTING_PATHS.TIME_INTERVALS
+    : createRelativeUrl(ALERTING_PATHS.ROUTES, { tab: 'time_intervals' });
+}
