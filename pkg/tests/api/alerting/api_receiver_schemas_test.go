@@ -50,8 +50,8 @@ func TestIntegrationReceiverSchemas(t *testing.T) {
 		require.NoError(t, err)
 		require.Equal(t, 200, oldResp.StatusCode)
 
-		// Test new K8s API endpoint with version=2
-		newReq, err := http.NewRequest(http.MethodGet, fmt.Sprintf("http://grafana:password@%s/apis/notifications.alerting.grafana.app/v0alpha1/namespaces/default/receivers/schema?version=2", grafanaListedAddr), nil)
+		// Test new K8s API endpoint
+		newReq, err := http.NewRequest(http.MethodGet, fmt.Sprintf("http://grafana:password@%s/apis/notifications.alerting.grafana.app/v0alpha1/namespaces/default/receivers/schema", grafanaListedAddr), nil)
 		require.NoError(t, err)
 
 		newResp, err := http.DefaultClient.Do(newReq)
@@ -62,20 +62,25 @@ func TestIntegrationReceiverSchemas(t *testing.T) {
 		require.NoError(t, err)
 		require.Equal(t, 200, newResp.StatusCode)
 
-		// Both should return the same data
-		assert.JSONEq(t, string(oldBody), string(newBody),
-			"K8s API endpoint should return same v2 format as legacy endpoint")
-
-		// Verify we got an array of integration schemas
+		// Verify old endpoint returns array of schemas
 		var oldSchemas []map[string]interface{}
 		err = json.Unmarshal(oldBody, &oldSchemas)
 		require.NoError(t, err)
 		assert.Greater(t, len(oldSchemas), 0, "Should return at least one integration schema")
 
-		var newSchemas []map[string]interface{}
-		err = json.Unmarshal(newBody, &newSchemas)
+		// Verify new endpoint returns wrapped schema object
+		var newSchemasRes struct {
+			Schemas []map[string]any `json:"schemas"`
+		}
+		err = json.Unmarshal(newBody, &newSchemasRes)
+		newSchemas := newSchemasRes.Schemas
 		require.NoError(t, err)
+		assert.Greater(t, len(newSchemas), 0, "Should return at least one integration schema")
 		assert.Equal(t, len(oldSchemas), len(newSchemas), "Both endpoints should return same number of schemas")
+
+		newSchemasMap, err := json.Marshal(newSchemas)
+		require.NoError(t, err)
+		require.JSONEq(t, string(oldBody), string(newSchemasMap), "Both endpoints should return identical schema data")
 	})
 
 	t.Run("app platform api endpoint requires authentication", func(t *testing.T) {
@@ -110,10 +115,12 @@ func TestIntegrationReceiverSchemas(t *testing.T) {
 		require.Equal(t, 200, resp.StatusCode)
 
 		// Verify we got valid schema data
-		var schemas []map[string]interface{}
+		var schemas struct {
+			Schemas []map[string]any `json:"schemas"`
+		}
 		err = json.Unmarshal(body, &schemas)
 		require.NoError(t, err)
-		assert.Greater(t, len(schemas), 0, "Should return at least one schema")
+		assert.Greater(t, len(schemas.Schemas), 0, "Should return at least one schema")
 	})
 
 	t.Run("app platform api returns well-known integration types", func(t *testing.T) {
@@ -128,13 +135,15 @@ func TestIntegrationReceiverSchemas(t *testing.T) {
 		require.NoError(t, err)
 		require.Equal(t, 200, resp.StatusCode)
 
-		var notifiers []map[string]interface{}
-		err = json.Unmarshal(body, &notifiers)
+		var res struct {
+			Schemas []map[string]any `json:"schemas"`
+		}
+		err = json.Unmarshal(body, &res)
 		require.NoError(t, err)
 
 		// Check for well-known integration types
 		types := make(map[string]bool)
-		for _, n := range notifiers {
+		for _, n := range res.Schemas {
 			if t, ok := n["type"].(string); ok {
 				types[t] = true
 			}

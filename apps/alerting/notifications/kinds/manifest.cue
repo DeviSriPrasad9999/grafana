@@ -19,7 +19,9 @@ manifest: {
 				namespaced: {
 					"/receivers/schema": {
 						"GET": {
-							response: ReceiverSchemaResponse
+							response: {
+								schemas: [...#IntegrationTypeSchema]
+							}
 							responseMetadata: typeMeta: false
 						}
 					}
@@ -78,9 +80,4 @@ manifest: {
 	options: [...#Field]
 	info?:       string
 	deprecated?: bool
-}
-
-// The endpoint returns an array of integration type schemas
-ReceiverSchemaResponse: {
-	schemas: [...#IntegrationTypeSchema]
 }
