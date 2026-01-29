@@ -19,7 +19,7 @@ manifest: {
 				namespaced: {
 					"/receivers/schema": {
 						"GET": {
-							response: #ReceiverSchemaResponse
+							response: ReceiverSchemaResponse
 							responseMetadata: typeMeta: false
 						}
 					}
@@ -81,6 +81,6 @@ manifest: {
 }
 
 // The endpoint returns an array of integration type schemas
-#ReceiverSchemaResponse: {
-	body: [...#IntegrationTypeSchema]
+ReceiverSchemaResponse: {
+	schemas: [...#IntegrationTypeSchema]
 }

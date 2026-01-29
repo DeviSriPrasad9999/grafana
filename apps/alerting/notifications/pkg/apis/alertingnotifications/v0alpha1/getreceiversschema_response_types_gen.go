@@ -96,13 +96,13 @@ func NewShowWhen() *ShowWhen {
 
 // +k8s:openapi-gen=true
 type GetReceiversschema struct {
-	Body []IntegrationTypeSchema `json:"body"`
+	Schemas []IntegrationTypeSchema `json:"schemas"`
 }
 
 // NewGetReceiversschema creates a new GetReceiversschema object.
 func NewGetReceiversschema() *GetReceiversschema {
 	return &GetReceiversschema{
-		Body: []IntegrationTypeSchema{},
+		Schemas: []IntegrationTypeSchema{},
 	}
 }
 

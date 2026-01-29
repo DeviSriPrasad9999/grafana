@@ -197,7 +197,7 @@ var appManifestData = app.ManifestData{
 																SchemaProps: spec.SchemaProps{
 																	Type: []string{"object"},
 																	Properties: map[string]spec.Schema{
-																		"body": {
+																		"schemas": {
 																			SchemaProps: spec.SchemaProps{
 																				Type: []string{"array"},
 																				Items: &spec.SchemaOrArray{
@@ -211,7 +211,7 @@ var appManifestData = app.ManifestData{
 																		},
 																	},
 																	Required: []string{
-																		"body",
+																		"schemas",
 																	},
 																}},
 														}},

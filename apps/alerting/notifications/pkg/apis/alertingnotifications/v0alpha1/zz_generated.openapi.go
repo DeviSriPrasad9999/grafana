@@ -280,7 +280,7 @@ func schema_pkg_apis_alertingnotifications_v0alpha1_GetReceiversschema(ref commo
 			SchemaProps: spec.SchemaProps{
 				Type: []string{"object"},
 				Properties: map[string]spec.Schema{
-					"body": {
+					"schemas": {
 						SchemaProps: spec.SchemaProps{
 							Type: []string{"array"},
 							Items: &spec.SchemaOrArray{
@@ -294,7 +294,7 @@ func schema_pkg_apis_alertingnotifications_v0alpha1_GetReceiversschema(ref commo
 						},
 					},
 				},
-				Required: []string{"body"},
+				Required: []string{"schemas"},
 			},
 		},
 		Dependencies: []string{
