@@ -179,11 +179,11 @@ var appManifestData = app.ManifestData{
 			},
 			Routes: app.ManifestVersionRoutes{
 				Namespaced: map[string]spec3.PathProps{
-					"/receivers/schema": {
+					"/receiverschema": {
 						Get: &spec3.Operation{
 							OperationProps: spec3.OperationProps{
 
-								OperationId: "getReceiversschema",
+								OperationId: "getReceiverschema",
 
 								Responses: &spec3.Responses{
 									ResponsesProps: spec3.ResponsesProps{
@@ -204,7 +204,7 @@ var appManifestData = app.ManifestData{
 																					Schema: &spec.Schema{
 																						SchemaProps: spec.SchemaProps{
 
-																							Ref: spec.MustCreateRef("#/components/schemas/getReceiversschemaIntegrationTypeSchema"),
+																							Ref: spec.MustCreateRef("#/components/schemas/getReceiverschemaIntegrationTypeSchema"),
 																						}},
 																				},
 																			},
@@ -225,7 +225,7 @@ var appManifestData = app.ManifestData{
 				},
 				Cluster: map[string]spec3.PathProps{},
 				Schemas: map[string]spec.Schema{
-					"getReceiversschemaField": {
+					"getReceiverschemaField": {
 						SchemaProps: spec.SchemaProps{
 							Type: []string{"object"},
 							Properties: map[string]spec.Schema{
@@ -286,7 +286,7 @@ var appManifestData = app.ManifestData{
 											Schema: &spec.Schema{
 												SchemaProps: spec.SchemaProps{
 
-													Ref: spec.MustCreateRef("#/components/schemas/getReceiversschemaSelectOption"),
+													Ref: spec.MustCreateRef("#/components/schemas/getReceiverschemaSelectOption"),
 												}},
 										},
 									},
@@ -294,7 +294,7 @@ var appManifestData = app.ManifestData{
 								"showWhen": {
 									SchemaProps: spec.SchemaProps{
 
-										Ref: spec.MustCreateRef("#/components/schemas/getReceiversschemaShowWhen"),
+										Ref: spec.MustCreateRef("#/components/schemas/getReceiverschemaShowWhen"),
 									},
 								},
 								"subformOptions": {
@@ -304,7 +304,7 @@ var appManifestData = app.ManifestData{
 											Schema: &spec.Schema{
 												SchemaProps: spec.SchemaProps{
 
-													Ref: spec.MustCreateRef("#/components/schemas/getReceiversschemaField"),
+													Ref: spec.MustCreateRef("#/components/schemas/getReceiverschemaField"),
 												}},
 										},
 									},
@@ -330,7 +330,7 @@ var appManifestData = app.ManifestData{
 							},
 						},
 					},
-					"getReceiversschemaIntegrationSchemaVersion": {
+					"getReceiverschemaIntegrationSchemaVersion": {
 						SchemaProps: spec.SchemaProps{
 							Type: []string{"object"},
 							Properties: map[string]spec.Schema{
@@ -356,7 +356,7 @@ var appManifestData = app.ManifestData{
 											Schema: &spec.Schema{
 												SchemaProps: spec.SchemaProps{
 
-													Ref: spec.MustCreateRef("#/components/schemas/getReceiversschemaField"),
+													Ref: spec.MustCreateRef("#/components/schemas/getReceiverschemaField"),
 												}},
 										},
 									},
@@ -379,7 +379,7 @@ var appManifestData = app.ManifestData{
 							},
 						},
 					},
-					"getReceiversschemaIntegrationTypeSchema": {
+					"getReceiverschemaIntegrationTypeSchema": {
 						SchemaProps: spec.SchemaProps{
 							Type:        []string{"object"},
 							Description: "IntegrationTypeSchema - receiver integration schema format",
@@ -426,7 +426,7 @@ var appManifestData = app.ManifestData{
 											Schema: &spec.Schema{
 												SchemaProps: spec.SchemaProps{
 
-													Ref: spec.MustCreateRef("#/components/schemas/getReceiversschemaIntegrationSchemaVersion"),
+													Ref: spec.MustCreateRef("#/components/schemas/getReceiverschemaIntegrationSchemaVersion"),
 												}},
 										},
 									},
@@ -440,7 +440,7 @@ var appManifestData = app.ManifestData{
 							},
 						},
 					},
-					"getReceiversschemaSelectOption": {
+					"getReceiverschemaSelectOption": {
 						SchemaProps: spec.SchemaProps{
 							Type: []string{"object"},
 							Properties: map[string]spec.Schema{
@@ -465,7 +465,7 @@ var appManifestData = app.ManifestData{
 							},
 						},
 					},
-					"getReceiversschemaShowWhen": {
+					"getReceiverschemaShowWhen": {
 						SchemaProps: spec.SchemaProps{
 							Type: []string{"object"},
 							Properties: map[string]spec.Schema{
@@ -517,7 +517,7 @@ func ManifestGoTypeAssociator(kind, version string) (goType resource.Kind, exist
 var customRouteToGoResponseType = map[string]any{
 	"v0alpha1|Receiver|test|POST": v0alpha1.CreateReceiverIntegrationTest{},
 
-	"v0alpha1||<namespace>/receivers/schema|GET": v0alpha1.GetReceiversschema{},
+	"v0alpha1||<namespace>/receiverschema|GET": v0alpha1.GetReceiverschema{},
 }
 
 // ManifestCustomRouteResponsesAssociator returns the associated response go type for a given kind, version, custom route path, and method, if one exists.

@@ -433,45 +433,6 @@
         }
       ]
     },
-    "/apis/notifications.alerting.grafana.app/v0alpha1/namespaces/{namespace}/receivers/schema": {
-      "get": {
-        "operationId": "getReceiversschema",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/com.github.grafana.grafana.apps.alerting.notifications.pkg.apis.alertingnotifications.v0alpha1.GetReceiversschema"
-                }
-              },
-              "application/json;stream=watch": {
-                "schema": {
-                  "$ref": "#/components/schemas/com.github.grafana.grafana.apps.alerting.notifications.pkg.apis.alertingnotifications.v0alpha1.GetReceiversschema"
-                }
-              },
-              "application/yaml": {
-                "schema": {
-                  "$ref": "#/components/schemas/com.github.grafana.grafana.apps.alerting.notifications.pkg.apis.alertingnotifications.v0alpha1.GetReceiversschema"
-                }
-              }
-            }
-          }
-        }
-      },
-      "parameters": [
-        {
-          "name": "namespace",
-          "in": "path",
-          "description": "object name and auth scope, such as for teams and projects",
-          "required": true,
-          "schema": {
-            "type": "string",
-            "uniqueItems": true
-          }
-        }
-      ]
-    },
     "/apis/notifications.alerting.grafana.app/v0alpha1/namespaces/{namespace}/receivers/{name}": {
       "get": {
         "tags": [
@@ -861,6 +822,45 @@
             "uniqueItems": true
           }
         },
+        {
+          "name": "namespace",
+          "in": "path",
+          "description": "object name and auth scope, such as for teams and projects",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "uniqueItems": true
+          }
+        }
+      ]
+    },
+    "/apis/notifications.alerting.grafana.app/v0alpha1/namespaces/{namespace}/receiverschema": {
+      "get": {
+        "operationId": "getReceiverschema",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.github.grafana.grafana.apps.alerting.notifications.pkg.apis.alertingnotifications.v0alpha1.GetReceiverschema"
+                }
+              },
+              "application/json;stream=watch": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.github.grafana.grafana.apps.alerting.notifications.pkg.apis.alertingnotifications.v0alpha1.GetReceiverschema"
+                }
+              },
+              "application/yaml": {
+                "schema": {
+                  "$ref": "#/components/schemas/com.github.grafana.grafana.apps.alerting.notifications.pkg.apis.alertingnotifications.v0alpha1.GetReceiverschema"
+                }
+              }
+            }
+          }
+        }
+      },
+      "parameters": [
         {
           "name": "namespace",
           "in": "path",
@@ -3173,7 +3173,7 @@
           }
         }
       },
-      "com.github.grafana.grafana.apps.alerting.notifications.pkg.apis.alertingnotifications.v0alpha1.GetReceiversschema": {
+      "com.github.grafana.grafana.apps.alerting.notifications.pkg.apis.alertingnotifications.v0alpha1.GetReceiverschema": {
         "type": "object",
         "required": [
           "schemas"
@@ -3182,7 +3182,7 @@
           "schemas": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/getReceiversschemaIntegrationTypeSchema"
+              "$ref": "#/components/schemas/getReceiverschemaIntegrationTypeSchema"
             }
           }
         }

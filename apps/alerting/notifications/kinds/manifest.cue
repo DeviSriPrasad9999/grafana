@@ -17,7 +17,7 @@ manifest: {
 			]
 			routes: {
 				namespaced: {
-					"/receivers/schema": {
+					"/receiverschema": {
 						"GET": {
 							response: {
 								schemas: [...#IntegrationTypeSchema]
@@ -34,12 +34,12 @@ manifest: {
 // Schema definitions for receiver schema endpoint response
 
 #Field: {
-	element:        string
-	inputType:      string
-	label:          string
-	description:    string
-	placeholder:    string
-	propertyName:   string
+	element:      string
+	inputType:    string
+	label:        string
+	description:  string
+	placeholder:  string
+	propertyName: string
 	selectOptions?: [...#SelectOption] | null
 	showWhen:       #ShowWhen
 	required:       bool
