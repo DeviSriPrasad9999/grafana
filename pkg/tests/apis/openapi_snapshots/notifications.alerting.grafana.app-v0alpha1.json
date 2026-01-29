@@ -3176,10 +3176,10 @@
       "com.github.grafana.grafana.apps.alerting.notifications.pkg.apis.alertingnotifications.v0alpha1.GetReceiversschema": {
         "type": "object",
         "required": [
-          "body"
+          "schemas"
         ],
         "properties": {
-          "body": {
+          "schemas": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/getReceiversschemaIntegrationTypeSchema"

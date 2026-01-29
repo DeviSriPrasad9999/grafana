@@ -45,7 +45,12 @@ func (h *Handler) HandleGetSchemas(ctx context.Context, writer app.CustomRouteRe
 		return strings.Compare(string(a.Type), string(b.Type))
 	})
 
+	// Wrap in response object for consistency with other app platform APIs
+	response := map[string]interface{}{
+		"schemas": schemas,
+	}
+
 	writer.Header().Set("Content-Type", "application/json")
 	writer.WriteHeader(http.StatusOK)
-	return json.NewEncoder(writer).Encode(schemas)
+	return json.NewEncoder(writer).Encode(response)
 }
