@@ -39,7 +39,7 @@ func Authorize(ctx context.Context, ac AccessControlService, attr authorizer.Att
 	}
 
 	if attr.GetVerb() != "list" && attr.GetVerb() != "get" {
-		return authorizer.DecisionDeny, "only reading receiver schemas is allowed", nil
+		return authorizer.DecisionDeny, "only reading integration type schemas is allowed", nil
 	}
 
 	return authorizer.DecisionAllow, "", nil
