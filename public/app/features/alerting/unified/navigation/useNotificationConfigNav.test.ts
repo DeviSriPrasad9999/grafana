@@ -1,3 +1,5 @@
+import { renderHook } from '@testing-library/react';
+
 import { config } from '@grafana/runtime';
 import { contextSrv } from 'app/core/services/context_srv';
 import { AccessControlAction } from 'app/types/accessControl';
@@ -50,22 +52,22 @@ describe('useNotificationConfigNav', () => {
     it('should return navId notification-config', () => {
       mockHasPermission.mockReturnValue(true);
 
-      const result = useNotificationConfigNav();
+      const { result } = renderHook(() => useNotificationConfigNav());
 
-      expect(result.navId).toBe('notification-config');
+      expect(result.current.navId).toBe('notification-config');
     });
 
     it('should return pageNav with tabs when user has all permissions', () => {
       mockHasPermission.mockReturnValue(true);
 
-      const result = useNotificationConfigNav();
+      const { result } = renderHook(() => useNotificationConfigNav());
 
-      expect(result.pageNav).toBeDefined();
-      expect(result.pageNav?.children).toHaveLength(4);
-      expect(result.pageNav?.children?.[0].id).toBe('notification-config-contact-points');
-      expect(result.pageNav?.children?.[1].id).toBe('notification-config-policies');
-      expect(result.pageNav?.children?.[2].id).toBe('notification-config-templates');
-      expect(result.pageNav?.children?.[3].id).toBe('notification-config-time-intervals');
+      expect(result.current.pageNav).toBeDefined();
+      expect(result.current.pageNav?.children).toHaveLength(4);
+      expect(result.current.pageNav?.children?.[0].id).toBe('notification-config-contact-points');
+      expect(result.current.pageNav?.children?.[1].id).toBe('notification-config-policies');
+      expect(result.current.pageNav?.children?.[2].id).toBe('notification-config-templates');
+      expect(result.current.pageNav?.children?.[3].id).toBe('notification-config-time-intervals');
     });
 
     it('should filter tabs based on permissions', () => {
@@ -76,11 +78,11 @@ describe('useNotificationConfigNav', () => {
         );
       });
 
-      const result = useNotificationConfigNav();
+      const { result } = renderHook(() => useNotificationConfigNav());
 
-      expect(result.pageNav?.children).toHaveLength(2);
-      expect(result.pageNav?.children?.[0].id).toBe('notification-config-contact-points');
-      expect(result.pageNav?.children?.[1].id).toBe('notification-config-templates');
+      expect(result.current.pageNav?.children).toHaveLength(2);
+      expect(result.current.pageNav?.children?.[0].id).toBe('notification-config-contact-points');
+      expect(result.current.pageNav?.children?.[1].id).toBe('notification-config-templates');
     });
 
     it('should not show tabs bar when only one tab is visible', () => {
@@ -89,9 +91,9 @@ describe('useNotificationConfigNav', () => {
         return action === AccessControlAction.AlertingReceiversRead;
       });
 
-      const result = useNotificationConfigNav();
+      const { result } = renderHook(() => useNotificationConfigNav());
 
-      expect(result.pageNav?.children).toBeUndefined();
+      expect(result.current.pageNav?.children).toBeUndefined();
     });
   });
 
@@ -101,10 +103,10 @@ describe('useNotificationConfigNav', () => {
     });
 
     it('should return the legacy navId', () => {
-      const result = useNotificationConfigNav();
+      const { result } = renderHook(() => useNotificationConfigNav());
 
-      expect(result.navId).toBe('receivers');
-      expect(result.pageNav).toBeUndefined();
+      expect(result.current.navId).toBe('receivers');
+      expect(result.current.pageNav).toBeUndefined();
     });
   });
 });
