@@ -1,4 +1,4 @@
-package receiverschema
+package integrationtypeschema
 
 import (
 	"context"

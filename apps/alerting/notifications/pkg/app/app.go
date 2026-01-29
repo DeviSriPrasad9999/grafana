@@ -45,15 +45,7 @@ func New(cfg app.Config) (app.App, error) {
 			{Kind: v0alpha1.RoutingTreeKind()},
 			{Kind: v0alpha1.TemplateGroupKind()},
 			{Kind: v0alpha1.TimeIntervalKind()},
-		},
-		VersionedCustomRoutes: map[string]simple.AppVersionRouteHandlers{
-			"v0alpha1": {
-				{
-					Namespaced: true,
-					Path:       "/receiverschema",
-					Method:     "GET",
-				}: customCfg.ReceiverSchemasHandler.HandleGetSchemas,
-			},
+			{Kind: v0alpha1.IntegrationTypeSchemaKind()},
 		},
 	}
 

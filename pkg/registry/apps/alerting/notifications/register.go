@@ -16,7 +16,7 @@ import (
 	grafanarest "github.com/grafana/grafana/pkg/apiserver/rest"
 	"github.com/grafana/grafana/pkg/infra/log"
 	"github.com/grafana/grafana/pkg/registry/apps/alerting/notifications/receiver"
-	"github.com/grafana/grafana/pkg/registry/apps/alerting/notifications/receiverschema"
+	"github.com/grafana/grafana/pkg/registry/apps/alerting/notifications/integrationtypeschema"
 	"github.com/grafana/grafana/pkg/registry/apps/alerting/notifications/routingtree"
 	"github.com/grafana/grafana/pkg/registry/apps/alerting/notifications/templategroup"
 	"github.com/grafana/grafana/pkg/registry/apps/alerting/notifications/timeinterval"
@@ -57,7 +57,6 @@ func RegisterAppInstaller(
 
 	customCfg := notificationsApp.Config{
 		ReceiverTestingHandler: receiver.New(ng.Api.ReceiverTestService),
-		ReceiverSchemasHandler: receiverschema.New(),
 	}
 
 	localManifest := apis.LocalManifest()
@@ -92,6 +91,8 @@ func (a AppInstaller) GetAuthorizer() authorizer.Authorizer {
 				return receiver.Authorize(ctx, ac.NewReceiverAccess[*ngmodels.Receiver](authz, false), a)
 			case routingtree.ResourceInfo.GroupResource().Resource:
 				return routingtree.Authorize(ctx, authz, a)
+			case integrationtypeschema.ResourceInfo.GroupResource().Resource:
+				return integrationtypeschema.Authorize(ctx, ac.NewReceiverAccess[*ngmodels.Receiver](authz, false), a)
 			}
 			return authorizer.DecisionNoOpinion, "", nil
 		})
@@ -118,6 +119,8 @@ func (a AppInstaller) GetLegacyStorage(gvr schema.GroupVersionResource) grafanar
 		return templategroup.NewStorage(srv, namespacer)
 	} else if gvr == routingtree.ResourceInfo.GroupVersionResource() {
 		return routingtree.NewStorage(api.Policies, namespacer)
+	} else if gvr == integrationtypeschema.ResourceInfo.GroupVersionResource() {
+		return integrationtypeschema.NewStorage(namespacer)
 	}
 	panic("unknown legacy storage requested: " + gvr.String())
 }
